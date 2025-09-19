@@ -1,5 +1,8 @@
 :root {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --brain-font: 'Orbitron', 'JetBrains Mono', monospace;
+  --neural-font: 'Exo 2', 'Inter', sans-serif;
+  --code-font: 'JetBrains Mono', 'Fira Code', monospace;
   line-height: 1.6;
   font-weight: 400;
 
@@ -86,15 +89,28 @@ body {
 }
 
 .hero-title {
+  font-family: var(--brain-font);
   font-size: clamp(48px, 8vw, 96px);
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   margin-bottom: 20px;
   color: var(--text-light);
   position: relative;
   z-index: 2;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  animation: brainPulse 3s ease-in-out infinite;
+}
+
+@keyframes brainPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(103, 126, 234, 0.5);
+  }
+  50% {
+    transform: scale(1.02);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(103, 126, 234, 0.8);
+  }
 }
 
 .hero-subtitle {
@@ -161,12 +177,19 @@ body {
 }
 
 .feature-title {
+  font-family: var(--neural-font);
   font-size: clamp(36px, 6vw, 64px);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
   color: var(--text-primary);
+  animation: neuralFlicker 4s ease-in-out infinite;
+}
+
+@keyframes neuralFlicker {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.95; }
 }
 
 .feature-description {
@@ -190,9 +213,19 @@ body {
   font-weight: 600;
   margin-top: 40px;
   box-shadow: 0 20px 60px rgba(103, 126, 234, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
+  animation: neuralPulse 6s ease-in-out infinite;
+}
+
+@keyframes neuralPulse {
+  0%, 100% {
+    box-shadow: 0 20px 60px rgba(103, 126, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 25px 80px rgba(103, 126, 234, 0.5);
+  }
 }
 
 .feature-visual::before {
@@ -211,7 +244,9 @@ body {
 }
 
 .feature-visual:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 100px rgba(103, 126, 234, 0.6);
+  animation-play-state: paused;
 }
 
 .grid-section {
@@ -260,8 +295,19 @@ body {
 }
 
 .grid-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 80px rgba(103, 126, 234, 0.2);
+}
+
+.grid-item:hover h3 {
+  color: var(--primary-blue);
+  animation: digitalGlow 0.5s ease-in-out;
+}
+
+@keyframes digitalGlow {
+  0% { text-shadow: none; }
+  50% { text-shadow: 0 0 10px rgba(0, 122, 255, 0.5); }
+  100% { text-shadow: none; }
 }
 
 .grid-item h3 {
@@ -355,6 +401,7 @@ body {
 }
 
 .spec-number {
+  font-family: var(--brain-font);
   font-size: 48px;
   font-weight: 700;
   background: var(--premium-gradient);
@@ -362,6 +409,18 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
+  animation: specPulse 3s ease-in-out infinite;
+}
+
+@keyframes specPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
 }
 
 .spec-label {
