@@ -4,7 +4,7 @@ function createApp() {
   return `
     <div id="app">
       <!-- Hero Section -->
-      <section class="hero-section">
+      <section class="hero-section finisher-header">
         <div class="container">
           <h1 class="hero-title">MindWave.AI</h1>
           <p class="hero-subtitle">
@@ -143,6 +143,15 @@ function setupInteractions() {
   const featureVisuals = document.querySelectorAll('.feature-visual')
   const productShowcase = document.querySelector('.product-showcase')
 
+  // Setup parallax scrolling
+  setupParallaxScrolling()
+
+  // Setup brain wave visualization
+  setupBrainWaveVisualization()
+
+  // Initialize finisher-header with brain wave theme
+  initializeFinisherHeader()
+
   if (heroButton) {
     heroButton.addEventListener('click', () => {
       const firstFeature = document.querySelector('.feature-section')
@@ -210,6 +219,127 @@ function setupInteractions() {
   })
 
   // Removed heavy parallax animation for better performance
+}
+
+function setupParallaxScrolling() {
+  const parallaxElements = document.querySelectorAll('.feature-section, .grid-section, .specifications-section')
+  let ticking = false
+
+  function updateParallax() {
+    const scrollTop = window.pageYOffset
+
+    parallaxElements.forEach((element, index) => {
+      const speed = 0.5 + (index * 0.1)
+      const yPos = -(scrollTop * speed / 10)
+      element.style.transform = `translateY(${yPos}px)`
+    })
+
+    // Parallax for hero section background
+    const heroSection = document.querySelector('.hero-section')
+    if (heroSection) {
+      const heroParallax = scrollTop * 0.3
+      heroSection.style.transform = `translateY(${heroParallax}px)`
+    }
+
+    ticking = false
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax)
+      ticking = true
+    }
+  })
+}
+
+function setupBrainWaveVisualization() {
+  // Create floating brain wave particles
+  const heroSection = document.querySelector('.hero-section')
+  if (!heroSection) return
+
+  for (let i = 0; i < 20; i++) {
+    const particle = document.createElement('div')
+    particle.className = 'brain-particle'
+    particle.style.cssText = `
+      position: absolute;
+      width: ${Math.random() * 4 + 2}px;
+      height: ${Math.random() * 4 + 2}px;
+      background: rgba(255, 255, 255, ${Math.random() * 0.5 + 0.2});
+      border-radius: 50%;
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 100}%;
+      animation: floatParticle ${Math.random() * 10 + 15}s linear infinite;
+      z-index: 1;
+    `
+    heroSection.appendChild(particle)
+  }
+
+  // Add CSS for particle animation
+  const style = document.createElement('style')
+  style.textContent = `
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) translateX(0px);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(${Math.random() * 200 - 100}px);
+        opacity: 0;
+      }
+    }
+  `
+  document.head.appendChild(style)
+}
+
+function initializeFinisherHeader() {
+  // Wait for the FinisherHeader library to load
+  setTimeout(() => {
+    if (typeof FinisherHeader !== 'undefined') {
+      new FinisherHeader({
+        "count": 6,
+        "size": {
+          "min": 800,
+          "max": 1200,
+          "pulse": 0.3
+        },
+        "speed": {
+          "x": {
+            "min": 0,
+            "max": 0.1
+          },
+          "y": {
+            "min": 0,
+            "max": 0.1
+          }
+        },
+        "colors": {
+          "background": "#667eea",
+          "particles": [
+            "#677eea",
+            "#764ba2",
+            "#f093fb",
+            "#56b6ff",
+            "#ff7ce5"
+          ]
+        },
+        "blending": "lighten",
+        "opacity": {
+          "center": 0.4,
+          "edge": 0.1
+        },
+        "skew": -1,
+        "shapes": [
+          "c"
+        ]
+      })
+    }
+  }, 100)
 }
 
 document.querySelector('#app').innerHTML = createApp()
