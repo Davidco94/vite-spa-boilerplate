@@ -66,11 +66,12 @@ body {
   text-align: center;
   padding: 100px 20px 120px;
   position: relative;
-  background: var(--neural-gradient);
+  background: linear-gradient(135deg, #ab51ff 0%, #63ffc1 100%); /* Purple to mint green gradient */
   color: var(--text-light);
   overflow: hidden;
 }
 
+/* Disabled wave overlay - using finisher-header animation instead
 .hero-section::before {
   content: '';
   position: absolute;
@@ -82,6 +83,7 @@ body {
   opacity: 0.3;
   animation: waves 20s linear infinite;
 }
+*/
 
 @keyframes waves {
   0% { transform: translateX(0); }
@@ -203,7 +205,7 @@ body {
 .feature-visual {
   width: 100%;
   height: 400px;
-  background: var(--premium-gradient);
+  background: linear-gradient(135deg, #ab51ff 0%, #63ffc1 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -212,7 +214,7 @@ body {
   font-size: 24px;
   font-weight: 600;
   margin-top: 40px;
-  box-shadow: 0 20px 60px rgba(103, 126, 234, 0.3);
+  box-shadow: 0 20px 60px rgba(171, 81, 255, 0.3);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
@@ -221,10 +223,10 @@ body {
 
 @keyframes neuralPulse {
   0%, 100% {
-    box-shadow: 0 20px 60px rgba(103, 126, 234, 0.3);
+    box-shadow: 0 20px 60px rgba(171, 81, 255, 0.3);
   }
   50% {
-    box-shadow: 0 25px 80px rgba(103, 126, 234, 0.5);
+    box-shadow: 0 25px 80px rgba(171, 81, 255, 0.5);
   }
 }
 
@@ -245,7 +247,7 @@ body {
 
 .feature-visual:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 30px 100px rgba(103, 126, 234, 0.6);
+  box-shadow: 0 30px 100px rgba(171, 81, 255, 0.6);
   animation-play-state: paused;
 }
 
@@ -435,7 +437,7 @@ body {
   padding: 20px 0;
   background: var(--light-blue);
   text-align: center;
-  margin-top: -410px;
+  margin-top: -400px;
 }
 
 .price-card {
