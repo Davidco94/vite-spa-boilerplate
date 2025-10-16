@@ -297,8 +297,10 @@ body {
   background: linear-gradient(135deg, #ab51ff 0%, #63ffc1 100%);
   border-radius: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 20px;
   color: white;
   font-size: 24px;
   font-weight: 600;
@@ -338,6 +340,17 @@ body {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 30px 100px rgba(171, 81, 255, 0.6);
   animation-play-state: paused;
+}
+
+.feature-visual dotlottie-player {
+  position: relative;
+  z-index: 10;
+}
+
+.feature-visual span {
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .grid-section {
@@ -414,6 +427,165 @@ body {
   color: var(--text-secondary);
 }
 
+/* FAQ Section */
+.faq-section {
+  padding: 100px 0;
+  background: white;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 0;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: var(--primary-blue);
+}
+
+.faq-icon {
+  font-size: 24px;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+  color: var(--primary-blue);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 0 24px 0;
+}
+
+.faq-answer p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* Waitlist Section */
+.waitlist-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.waitlist-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.waitlist-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.waitlist-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.waitlist-input {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.waitlist-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.waitlist-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.waitlist-button {
+  padding: 16px 32px;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.waitlist-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.waitlist-success {
+  text-align: center;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.waitlist-success.hidden {
+  display: none;
+}
+
+.waitlist-success svg {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.waitlist-success h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.waitlist-success p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .footer {
   padding: 60px 20px;
   background: var(--gray-900);
@@ -426,37 +598,40 @@ body {
   color: var(--gray-600);
 }
 
-.product-showcase {
+.video-showcase {
   width: 100%;
-  max-width: 600px;
-  height: 280px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: 600;
-  color: white;
+  max-width: 900px;
   margin: 60px auto 0;
   position: relative;
   z-index: 2;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
-.product-showcase .showcase-text {
-  position: relative;
-  z-index: 10;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.product-showcase:hover {
-  transform: translateY(-10px) scale(1.02);
+.video-container:hover {
+  transform: translateY(-5px);
   box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 24px;
 }
 
 .specifications-section {
@@ -600,9 +775,7 @@ body {
     margin: 0;
   }
 
-  .product-showcase {
-    height: 200px;
-    font-size: 20px;
+  .video-showcase {
     max-width: 100%;
     margin: 40px 16px 0;
   }
@@ -622,5 +795,27 @@ body {
 
   .feature-content {
     padding: 0 16px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .faq-answer p {
+    font-size: 15px;
+  }
+
+  .waitlist-form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .waitlist-input {
+    width: 100%;
+  }
+
+  .waitlist-button {
+    width: 100%;
   }
 }
