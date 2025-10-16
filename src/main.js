@@ -3,8 +3,21 @@ import './style.css'
 function createApp() {
   return `
     <div id="app">
+      <!-- Navigation Bar -->
+      <nav class="top-nav">
+        <div class="nav-container">
+          <div class="nav-logo">MindWave.AI</div>
+          <ul class="nav-links">
+            <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#features" class="nav-link">Features</a></li>
+            <li><a href="#specs" class="nav-link">Products</a></li>
+            <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          </ul>
+        </div>
+      </nav>
+
       <!-- Hero Section -->
-      <section class="hero-section finisher-header">
+      <section id="hero" class="hero-section finisher-header">
         <div class="container">
           <h1 class="hero-title">MindWave.AI</h1>
           <p class="hero-subtitle">
@@ -19,7 +32,7 @@ function createApp() {
       </section>
 
       <!-- Revolutionary Technology -->
-      <section class="feature-section">
+      <section id="features" class="feature-section">
         <div class="container">
           <div class="feature-content">
             <h2 class="feature-title">Revolutionary Neural Interface</h2>
@@ -67,7 +80,7 @@ function createApp() {
       </section>
 
       <!-- Product Features -->
-      <section class="grid-section">
+      <section id="specs" class="grid-section">
         <div class="container">
           <div class="grid-container">
             <div class="grid-item">
@@ -116,7 +129,7 @@ function createApp() {
       </section>
 
       <!-- Pricing Section -->
-      <section class="pricing-section">
+      <section id="pricing" class="pricing-section">
         <div class="container">
           <h2 class="feature-title" style="text-align: center; margin-bottom: 60px;">Experience the Future</h2>
           <div class="price-card">
@@ -142,6 +155,9 @@ function setupInteractions() {
   const buyButton = document.querySelector('#buy-now')
   const featureVisuals = document.querySelectorAll('.feature-visual')
   const productShowcase = document.querySelector('.product-showcase')
+
+  // Setup navigation
+  setupNavigation()
 
   // Setup parallax scrolling
   setupParallaxScrolling()
@@ -219,6 +235,39 @@ function setupInteractions() {
   })
 
   // Removed heavy parallax animation for better performance
+}
+
+function setupNavigation() {
+  const nav = document.querySelector('.top-nav')
+  const navLinks = document.querySelectorAll('.nav-link')
+
+  // Add scroll effect to navigation
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled')
+    } else {
+      nav.classList.remove('scrolled')
+    }
+  })
+
+  // Smooth scroll to sections
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault()
+      const targetId = link.getAttribute('href')
+      const targetSection = document.querySelector(targetId)
+
+      if (targetSection) {
+        const navHeight = nav.offsetHeight
+        const targetPosition = targetSection.offsetTop - navHeight
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        })
+      }
+    })
+  })
 }
 
 function setupParallaxScrolling() {
