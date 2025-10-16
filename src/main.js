@@ -12,6 +12,8 @@ function createApp() {
             <li><a href="#features" class="nav-link">Features</a></li>
             <li><a href="#specs" class="nav-link">Products</a></li>
             <li><a href="#pricing" class="nav-link">Pricing</a></li>
+            <li><a href="#faq" class="nav-link">FAQ</a></li>
+            <li><a href="#waitlist" class="nav-link">Waitlist</a></li>
           </ul>
         </div>
       </nav>
@@ -25,8 +27,16 @@ function createApp() {
             Experience unprecedented neural technology that transforms thoughts into digital reality.
           </p>
           <button class="cta-button" id="hero-cta">Discover the Future</button>
-          <div class="product-showcase">
-            <span class="showcase-text">🧠 MindWave Device</span>
+          <div class="video-showcase">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/5fpGTE3aIw0?autoplay=1&mute=1&loop=1&playlist=5fpGTE3aIw0"
+                title="MindWave.AI Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
           </div>
         </div>
       </section>
@@ -41,7 +51,8 @@ function createApp() {
               creating a seamless bridge between mind and machine.
             </p>
             <div class="feature-visual">
-              ⚡ Real-time Signal Processing
+              <dotlottie-player src="https://lottie.host/32c7a770-9c88-49fe-a663-61c7dd8f35a3/J6HxKhQsii.lottie" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player>
+              <span>Real-time Signal Processing</span>
             </div>
           </div>
         </div>
@@ -57,7 +68,8 @@ function createApp() {
               setting the new standard for brain-computer interfaces.
             </p>
             <div class="feature-visual">
-              🎯 99.9% Accuracy
+              <dotlottie-player src="https://lottie.host/b410b946-1fea-46e9-b87d-8745a3b54840/VYebH5bxme.lottie" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player>
+              <span>99.9% Accuracy</span>
             </div>
           </div>
         </div>
@@ -73,7 +85,8 @@ function createApp() {
               neural optimization and real-time performance enhancement.
             </p>
             <div class="feature-visual">
-              🚀 Cognitive Amplification
+              <dotlottie-player src="https://lottie.host/e05ac396-bed4-4d3a-b58f-b22ef1e763ec/RSxiaBjKJ1.lottie" background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player>
+              <span>Cognitive Amplification</span>
             </div>
           </div>
         </div>
@@ -140,6 +153,82 @@ function createApp() {
         </div>
       </section>
 
+      <!-- Q&A Section -->
+      <section id="faq" class="faq-section">
+        <div class="container">
+          <h2 class="feature-title" style="text-align: center; margin-bottom: 60px;">Frequently Asked Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How does MindWave.AI work?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>MindWave.AI uses advanced EEG sensors to detect brain wave patterns and processes them through our proprietary AI algorithms. The device is completely non-invasive and captures neural signals through comfortable sensors placed on your scalp.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Is it safe to use?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Absolutely. MindWave.AI is completely non-invasive and uses the same safe technology found in medical-grade EEG devices. It only reads brain signals and does not emit any radiation or electrical signals into your brain.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How accurate is the thought recognition?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Our AI achieves 99.9% accuracy in thought pattern recognition after a brief calibration period. The system continuously learns from your unique neural patterns, improving accuracy over time.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What is the battery life?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>MindWave.AI offers up to 24 hours of continuous use on a single charge. It includes wireless charging and fast-charge capability (50% charge in 30 minutes).</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Is my data secure?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Your privacy is our top priority. All neural data is processed locally on your device with military-grade encryption. We never store or transmit your brain data to external servers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Waitlist Section -->
+      <section id="waitlist" class="waitlist-section">
+        <div class="container">
+          <div class="waitlist-content">
+            <h2 class="feature-title" style="text-align: center; margin-bottom: 20px;">Join the Waitlist</h2>
+            <p class="waitlist-subtitle">Be among the first to experience the future of neural technology. Get early access and exclusive launch benefits.</p>
+            <form class="waitlist-form" id="waitlist-form">
+              <input type="email" id="waitlist-email" class="waitlist-input" placeholder="Enter your email address" required>
+              <button type="submit" class="waitlist-button">Join Waitlist</button>
+            </form>
+            <div id="waitlist-success" class="waitlist-success hidden">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h3>Successfully Subscribed!</h3>
+              <p>Thank you for joining the waitlist. We'll notify you when MindWave.AI becomes available.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Footer -->
       <footer class="footer">
         <div class="container">
@@ -154,7 +243,6 @@ function setupInteractions() {
   const heroButton = document.querySelector('#hero-cta')
   const buyButton = document.querySelector('#buy-now')
   const featureVisuals = document.querySelectorAll('.feature-visual')
-  const productShowcase = document.querySelector('.product-showcase')
 
   // Setup navigation
   setupNavigation()
@@ -168,6 +256,12 @@ function setupInteractions() {
   // Initialize finisher-header with brain wave theme
   initializeFinisherHeader()
 
+  // Setup FAQ accordion
+  setupFAQ()
+
+  // Setup waitlist form
+  setupWaitlistForm()
+
   if (heroButton) {
     heroButton.addEventListener('click', () => {
       const firstFeature = document.querySelector('.feature-section')
@@ -178,16 +272,6 @@ function setupInteractions() {
   if (buyButton) {
     buyButton.addEventListener('click', () => {
       alert('Thank you for your interest! Pre-orders will be available soon. \n\nJoin our waitlist to be notified when MindWave.AI becomes available.')
-    })
-  }
-
-  if (productShowcase) {
-    productShowcase.addEventListener('mouseenter', () => {
-      productShowcase.style.transform = 'translateY(-5px) scale(1.02)'
-    })
-
-    productShowcase.addEventListener('mouseleave', () => {
-      productShowcase.style.transform = 'translateY(0) scale(1)'
     })
   }
 
@@ -259,7 +343,9 @@ function setupNavigation() {
 
       if (targetSection) {
         const navHeight = nav.offsetHeight
-        const targetPosition = targetSection.offsetTop - navHeight
+        // Add extra offset for products section to show section title
+        const extraOffset = targetId === '#specs' ? 200 : 0
+        const targetPosition = targetSection.offsetTop - navHeight - extraOffset
 
         window.scrollTo({
           top: targetPosition,
@@ -389,6 +475,55 @@ function initializeFinisherHeader() {
       })
     }
   }, 100)
+}
+
+function setupFAQ() {
+  const faqQuestions = document.querySelectorAll('.faq-question')
+
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const faqItem = question.parentElement
+      const isActive = faqItem.classList.contains('active')
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active')
+      })
+
+      // Toggle current item
+      if (!isActive) {
+        faqItem.classList.add('active')
+      }
+    })
+  })
+}
+
+function setupWaitlistForm() {
+  const form = document.querySelector('#waitlist-form')
+  const successMessage = document.querySelector('#waitlist-success')
+  const emailInput = document.querySelector('#waitlist-email')
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      const email = emailInput.value
+
+      // Mock API call - store in console for now
+      console.log('Waitlist signup (mock):', { email, timestamp: new Date().toISOString() })
+
+      // Show success message
+      form.style.display = 'none'
+      successMessage.classList.remove('hidden')
+
+      // Optional: Reset after 5 seconds
+      setTimeout(() => {
+        form.style.display = 'flex'
+        successMessage.classList.add('hidden')
+        emailInput.value = ''
+      }, 5000)
+    })
+  }
 }
 
 document.querySelector('#app').innerHTML = createApp()
