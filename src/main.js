@@ -785,7 +785,7 @@ function setupPricingButtons() {
   const pricingTiers = document.querySelectorAll('.pricing-tier')
   const pricingButtons = document.querySelectorAll('.pricing-tier-button')
 
-  // Add click handler to entire pricing tier card
+  // Add click handler to each pricing tier card
   pricingTiers.forEach(tier => {
     tier.addEventListener('click', (e) => {
       // Remove selected class from all tiers
@@ -793,24 +793,18 @@ function setupPricingButtons() {
 
       // Add selected class to clicked tier
       tier.classList.add('selected')
-
-      // Don't trigger button click if we clicked the tier itself
-      if (!e.target.closest('.pricing-tier-button')) {
-        // Optional: scroll tier into view
-        tier.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      }
     })
   })
 
-  // Handle button clicks
+  // Handle button clicks (for showing alerts)
   pricingButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-      e.stopPropagation() // Prevent tier click handler
+      e.stopPropagation() // Prevent tier click from firing
 
       const tier = button.closest('.pricing-tier')
       const tierName = tier.querySelector('.pricing-tier-name').textContent
 
-      // Highlight the selected tier
+      // Ensure this tier is selected
       pricingTiers.forEach(t => t.classList.remove('selected'))
       tier.classList.add('selected')
 
