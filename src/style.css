@@ -1141,17 +1141,6 @@ a:focus-visible {
   box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
 }
 
-.pricing-tier.basic .pricing-tier-button {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 2px solid var(--border-color);
-}
-
-.pricing-tier.basic .pricing-tier-button:hover {
-  background: var(--surface-primary);
-  border-color: var(--primary-purple);
-}
-
 @media (max-width: 768px) {
   .hero-section {
     min-height: 100vh;
