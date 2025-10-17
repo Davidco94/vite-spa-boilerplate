@@ -1051,17 +1051,17 @@ a:focus-visible {
 }
 
 .pricing-tier.featured {
-  border-color: var(--primary-purple);
+  border-color: rgb(27 177 204 / 80%);
   border-width: 3px;
   background: linear-gradient(135deg, rgba(124, 77, 255, 0.05) 0%, rgba(0, 184, 212, 0.05) 100%);
 }
 
 .pricing-tier.selected {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 60px rgba(124, 77, 255, 0.4);
-  border-color: var(--primary-purple);
-  border-width: 3px;
-  background: linear-gradient(135deg, rgba(124, 77, 255, 0.08) 0%, rgba(0, 184, 212, 0.08) 100%);
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 25px 60px rgba(124, 77, 255, 0.4) !important;
+  border-color: var(--primary-purple) !important;
+  border-width: 3px !important;
+  background: linear-gradient(135deg, rgba(124, 77, 255, 0.08) 0%, rgba(0, 184, 212, 0.08) 100%) !important;
 }
 
 .pricing-badge {
@@ -1139,17 +1139,6 @@ a:focus-visible {
 .pricing-tier-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
-}
-
-.pricing-tier.basic .pricing-tier-button {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 2px solid var(--border-color);
-}
-
-.pricing-tier.basic .pricing-tier-button:hover {
-  background: var(--surface-primary);
-  border-color: var(--primary-purple);
 }
 
 @media (max-width: 768px) {
