@@ -40,6 +40,16 @@ function createApp() {
       <!-- Hero Section with enhanced accessibility -->
       <main id="main-content">
         <section id="hero" class="hero-section finisher-header" aria-labelledby="hero-title">
+          <div class="hero-video-background">
+            <iframe
+              src="https://www.youtube.com/embed/5fpGTE3aIw0?autoplay=1&mute=1&loop=1&playlist=5fpGTE3aIw0&controls=0&showinfo=0&rel=0&modestbranding=1"
+              title="MindWave.AI product demonstration video background"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="eager">
+            </iframe>
+          </div>
+          <div class="hero-overlay"></div>
           <div class="container">
             <h1 id="hero-title" class="hero-title">MindWave.AI</h1>
             <p class="hero-subtitle">
@@ -49,18 +59,6 @@ function createApp() {
             <button class="cta-button" id="hero-cta" aria-label="Discover the future of neural technology">
               Discover the Future
             </button>
-            <div class="video-showcase">
-              <div class="video-container">
-                <iframe
-                  src="https://www.youtube.com/embed/5fpGTE3aIw0?autoplay=1&mute=1&loop=1&playlist=5fpGTE3aIw0"
-                  title="MindWave.AI product demonstration video showing advanced neural interface technology"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  loading="lazy">
-                </iframe>
-              </div>
-            </div>
           </div>
         </section>
 

@@ -278,6 +278,8 @@ a:focus-visible {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-section {
@@ -289,9 +291,53 @@ a:focus-visible {
   text-align: center;
   padding: 100px 20px 120px;
   position: relative;
-  background: var(--hero-gradient);
   color: var(--text-light);
   overflow: hidden;
+}
+
+.hero-video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 14, 39, 0.5);
+  z-index: 1;
+}
+
+.hero-video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.77vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.7) 0%, rgba(26, 35, 126, 0.6) 50%, rgba(13, 71, 161, 0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Disabled wave overlay - using finisher-header animation instead
@@ -737,41 +783,7 @@ a:focus-visible {
   color: var(--gray-600);
 }
 
-.video-showcase {
-  width: 100%;
-  max-width: 900px;
-  margin: 60px auto 0;
-  position: relative;
-  z-index: 2;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.video-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 24px;
-}
+/* Video showcase styles removed - now using background video in hero */
 
 .specifications-section {
   padding: 120px 0;
@@ -1168,10 +1180,6 @@ a:focus-visible {
     margin: 0;
   }
 
-  .video-showcase {
-    max-width: 100%;
-    margin: 40px 16px 0;
-  }
 
   .price {
     font-size: 48px;
